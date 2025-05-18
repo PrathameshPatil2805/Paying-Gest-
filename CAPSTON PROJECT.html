@@ -1,0 +1,214 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Paying Guest Finder</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <style>
+        body { font-family: Arial, sans-serif; margin:0; padding:0; background:#f8f8f8;}
+        header, nav, main, footer { max-width: 1200px; margin:auto; }
+        header { background:#4a90e2; color:#fff; padding:20px 0; text-align:center;}
+        nav { background:#fff; padding:10px 0; box-shadow:0 2px 4px rgba(0,0,0,0.05);}
+        nav a { margin:0 15px; color:#4a90e2; text-decoration:none; font-weight:bold;}
+        .search-bar { display:flex; gap:10px; margin:30px 0; justify-content:center;}
+        .search-bar input, .search-bar select, .search-bar button { padding:10px; border:1px solid #ccc; border-radius:4px;}
+        .highlights, .pg-listings { display:flex; gap:20px; flex-wrap:wrap; justify-content:center;}
+        .highlight, .pg-card { background:#fff; border-radius:8px; box-shadow:0 2px 8px rgba(0,0,0,0.07); padding:20px; width:300px;}
+        .pg-card img, .highlight img { width:100%; border-radius:6px;}
+        .pg-card ul { list-style:none; padding:0; margin:10px 0;}
+        .pg-card li { margin-bottom:5px;}
+        .contact-btn { background:#4a90e2; color:#fff; border:none; padding:10px 20px; border-radius:4px; cursor:pointer;}
+        .filters { margin:30px 0; display:flex; gap:15px; justify-content:center;}
+        .details-gallery { display:flex; gap:10px;}
+        .details-gallery img { width:120px; border-radius:6px;}
+        .map { width:100%; height:250px; border-radius:8px; margin:15px 0;}
+        form { display:flex; flex-direction:column; gap:10px; max-width:400px; margin:auto;}
+        input, textarea { padding:10px; border:1px solid #ccc; border-radius:4px;}
+        button[type="submit"] { background:#4a90e2; color:#fff; border:none; padding:10px; border-radius:4px; cursor:pointer;}
+        @media (max-width: 700px) {
+            .highlights, .pg-listings { flex-direction:column; align-items:center;}
+            .highlight, .pg-card { width:90%;}
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Paying Guest Finder</h1>
+        <p>Your trusted platform to find the best PGs in your city!</p>
+    </header>
+    <nav>
+        <a href="#home">Home</a>
+        <a href="#listings">PG Listings</a>
+        <a href="#about">About Us</a>
+        <a href="#contact">Contact</a>
+    </nav>
+    <main>
+        <!-- Home Page -->
+        <section id="home">
+            <h2>Welcome to Paying Guest Finder</h2>
+            <p>Find the perfect PG accommodation tailored to your needs. Search by location, budget, and facilities. Trusted by thousands of students and professionals.</p>
+            <div class="search-bar">
+                <input type="text" placeholder="Location">
+                <input type="number" placeholder="Max Budget">
+                <select>
+                    <option value="">Room Type</option>
+                    <option>Single</option>
+                    <option>Double</option>
+                    <option>Triple</option>
+                </select>
+                <button>Search</button>
+            </div>
+            <h3>Best PGs Highlights</h3>
+            <div class="highlights">
+                <div class="highlight">
+                    <img src="https://via.placeholder.com/300x180?text=PG+1" alt="PG 1">
+                    <h4>Sunrise PG</h4>
+                    <p>Near City Center, Wi-Fi, Food, AC</p>
+                </div>
+                <div class="highlight">
+                    <img src="https://via.placeholder.com/300x180?text=PG+2" alt="PG 2">
+                    <h4>Green Villa PG</h4>
+                    <p>Peaceful Area, Laundry, Food, Wi-Fi</p>
+                </div>
+                <div class="highlight">
+                    <img src="https://via.placeholder.com/300x180?text=PG+3" alt="PG 3">
+                    <h4>Elite Stay</h4>
+                    <p>AC Rooms, Gym, Food, Wi-Fi</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- PG Listings Page -->
+        <section id="listings">
+            <h2>PG Listings</h2>
+            <div class="filters">
+                <input type="text" placeholder="Location">
+                <input type="number" placeholder="Max Rent">
+                <select>
+                    <option value="">Room Type</option>
+                    <option>Single</option>
+                    <option>Double</option>
+                    <option>Triple</option>
+                </select>
+                <select>
+                    <option value="">Gender</option>
+                    <option>Boys</option>
+                    <option>Girls</option>
+                    <option>Co-ed</option>
+                </select>
+                <select>
+                    <option value="">Facilities</option>
+                    <option>Wi-Fi</option>
+                    <option>Food</option>
+                    <option>AC</option>
+                    <option>Laundry</option>
+                </select>
+                <button>Apply Filters</button>
+            </div>
+            <div class="pg-listings">
+                <div class="pg-card">
+                    <img src="https://via.placeholder.com/300x180?text=PG+1" alt="PG 1">
+                    <h4>Sunrise PG</h4>
+                    <ul>
+                        <li><b>Address:</b> 123 Main St, City Center</li>
+                        <li><b>Rent:</b> ₹7,000/month</li>
+                        <li><b>Room Type:</b> Single</li>
+                        <li><b>Facilities:</b> Wi-Fi, Food, AC</li>
+                    </ul>
+                    <button class="contact-btn" onclick="showDetails('pg1')">View Details</button>
+                </div>
+                <div class="pg-card">
+                    <img src="https://via.placeholder.com/300x180?text=PG+2" alt="PG 2">
+                    <h4>Green Villa PG</h4>
+                    <ul>
+                        <li><b>Address:</b> 45 Park Lane, Suburb</li>
+                        <li><b>Rent:</b> ₹6,500/month</li>
+                        <li><b>Room Type:</b> Double</li>
+                        <li><b>Facilities:</b> Laundry, Food, Wi-Fi</li>
+                    </ul>
+                    <button class="contact-btn" onclick="showDetails('pg2')">View Details</button>
+                </div>
+                <div class="pg-card">
+                    <img src="https://via.placeholder.com/300x180?text=PG+3" alt="PG 3">
+                    <h4>Elite Stay</h4>
+                    <ul>
+                        <li><b>Address:</b> 78 Elite Rd, Downtown</li>
+                        <li><b>Rent:</b> ₹8,500/month</li>
+                        <li><b>Room Type:</b> Triple</li>
+                        <li><b>Facilities:</b> AC, Gym, Food, Wi-Fi</li>
+                    </ul>
+                    <button class="contact-btn" onclick="showDetails('pg3')">View Details</button>
+                </div>
+            </div>
+        </section>
+
+        <!-- PG Details Page (Sample for PG 1) -->
+        <section id="pg-details" style="display:none;">
+            <button onclick="closeDetails()" style="float:right;">Close</button>
+            <h2>Sunrise PG - Details</h2>
+            <div class="details-gallery">
+                <img src="https://via.placeholder.com/120x80?text=Room+1" alt="Room 1">
+                <img src="https://via.placeholder.com/120x80?text=Room+2" alt="Room 2">
+                <img src="https://via.placeholder.com/120x80?text=Common+Area" alt="Common Area">
+            </div>
+            <ul>
+                <li><b>Address:</b> 123 Main St, City Center</li>
+                <li><b>Rent:</b> ₹7,000/month</li>
+                <li><b>Room Type:</b> Single</li>
+                <li><b>Facilities:</b> Wi-Fi, Food, AC</li>
+            </ul>
+            <div>
+                <b>Location:</b>
+                <div class="map">
+                    <!-- Google Maps Embed Example -->
+                    <iframe src="https://www.google.com/maps?q=123+Main+St,+City+Center&output=embed" width="100%" height="100%" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
+                </div>
+            </div>
+            <h4>Contact Owner</h4>
+            <ul>
+                <li><b>Name:</b> Mr. Sharma</li>
+                <li><b>Phone:</b> +91-9876543210</li>
+                <li><b>Email:</b> sunrisepg@email.com</li>
+            </ul>
+            <form>
+                <input type="text" placeholder="Your Name" required>
+                <input type="email" placeholder="Your Email" required>
+                <textarea placeholder="Your Message" required></textarea>
+                <button type="submit">Send Inquiry</button>
+            </form>
+        </section>
+
+        <!-- About Us Page -->
+        <section id="about">
+            <h2>About Us</h2>
+            <p>We are a team of students and professionals who understand the challenges of finding the right PG accommodation. Our mission is to make the process easy, transparent, and reliable for everyone. We built this website to connect PG owners and seekers on a single trusted platform.</p>
+        </section>
+
+        <!-- Contact Page -->
+        <section id="contact">
+            <h2>Contact Us</h2>
+            <form>
+                <input type="text" placeholder="Your Name" required>
+                <input type="email" placeholder="Your Email" required>
+                <textarea placeholder="Your Query" required></textarea>
+                <button type="submit">Submit</button>
+            </form>
+            <p>Email: support@pgfinder.com<br>
+            Phone: +91-9000000000</p>
+        </section>
+    </main>
+    <footer style="background:#4a90e2; color:#fff; text-align:center; padding:15px 0; margin-top:30px;">
+        &copy; 2024 Paying Guest Finder. All rights reserved.
+    </footer>
+    <script>
+        // Simple show/hide for PG details
+        function showDetails(pgId) {
+            document.getElementById('pg-details').style.display = 'block';
+            window.scrollTo(0, document.getElementById('pg-details').offsetTop);
+        }
+        function closeDetails() {
+            document.getElementById('pg-details').style.display = 'none';
+        }
+    </script>
+</body>
+</html>
